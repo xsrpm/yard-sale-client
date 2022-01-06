@@ -1,0 +1,135 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* outline: 1px dashed red; */
+}
+:root {
+  --Verylightpink: #c7c7c7;
+  --White: #ffffff;
+  --Textinputfield: #f7f7f7;
+  --Black: #000000;
+  --Hospitalgreen: #acd9b2;
+  --Dark: #232830;
+  /*font-size: 62.5%;*/
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: 'Quicksand', sans-serif;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+body {
+  height: 100vh;
+}
+
+#root {
+  position: relative;
+  display: grid;
+  height: 100vh;
+}
+
+input {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: var(--Textinputfield);
+  border: transparent;
+  border-radius: 10px;
+  padding: 10px 10px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--Hospitalgreen);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.brand {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  align-items: flex-start;
+}
+
+.brand span:first-of-type {
+  text-transform: uppercase;
+  color: var(--Hospitalgreen);
+}
+
+.brand-big {
+  font-size: 2rem;
+}
+
+.brand-big img {
+  width: 36.65px;
+  height: auto;
+}
+
+.brand-medium {
+  font-size: 1.6rem;
+}
+
+.brand-medium img {
+  width: 26.35px;
+  height: auto;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
+.primary-button {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background-color: var(--Hospitalgreen);
+  color: var(--White);
+  border-radius: 10px;
+  border: transparent;
+  padding: 16px 0;
+}
+
+.secondary-button {
+  border-color: var(--Hospitalgreen);
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--Hospitalgreen);
+  text-decoration: none;
+  padding: 16px 0;
+  border-radius: 10px;
+  border: var(--Hospitalgreen) 2px solid;
+  text-align: center;
+  background-color: var(--White);
+}
+
+.thin-width {
+  max-width: 300px;
+  min-width: 320px;
+  width: 100%;
+}
+
+@media screen and (min-width: 640px) {
+  .thin-width {
+    max-width: 340px;
+  }
+}

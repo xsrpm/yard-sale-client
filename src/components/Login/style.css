@@ -1,0 +1,100 @@
+.header {
+  display: none;
+}
+
+.Login .brand {
+  margin-bottom: 60px;
+}
+
+.Login {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 25px 0 25px 0;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.Login .login__header {
+  text-align: right;
+  margin-bottom: 80px;
+}
+
+.Login form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 55px;
+}
+
+.Login .form-items {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.Login .form-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.Login .form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.Login .form-buttons > p {
+  font-size: 0.8rem;
+}
+
+.Login .message {
+  color: #d25050;
+  font-size: 0.8rem;
+  text-align: center;
+  margin: 1rem;
+  visibility: hidden;
+}
+
+.Login .email-password-invalid label {
+  color: #d25050;
+}
+
+.Login .email-password-invalid input {
+  outline: auto #d25050;
+}
+
+.Login .email-password-invalid .message {
+  visibility: visible;
+}
+
+.Login .email-invalid label[for='email'] {
+  color: #d25050;
+}
+.Login .email-invalid input[name='email'] {
+  outline: auto #d25050;
+  /*Enter a valid email address*/
+}
+
+@media screen and (min-width: 640px) {
+  .header {
+    display: grid;
+  }
+  #root {
+    grid-template-rows: auto 1fr;
+  }
+  .Login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .Login .login__header {
+    display: none;
+  }
+  .Login .body {
+    padding-top: 0px;
+  }
+  .Login .body h1 {
+    display: none;
+  }
+}

@@ -1,0 +1,60 @@
+.MyOrders {
+  padding: 20px 0;
+  max-width: 400px;
+  min-width: 375px;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto auto;
+  margin: 0 auto;
+}
+
+.MyOrders li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 27px 10px 25px;
+}
+
+.MyOrders li div:last-of-type {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.MyOrders .date {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.MyOrders .n-articles {
+  font-size: 0.8rem;
+}
+
+.MyOrders .price {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.MyOrders mg {
+  width: 10px;
+}
+
+.MyOrders h3 {
+  display: none;
+  padding: 10px 27px 30px 25px;
+}
+
+@media screen and (min-width: 640px) {
+  .MyOrders {
+    display: grid;
+    align-items: center;
+  }
+  .MyOrders h3 {
+    display: flex;
+    align-self: end;
+  }
+
+  .MyOrders ul {
+    align-self: start;
+  }
+}

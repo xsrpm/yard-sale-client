@@ -1,0 +1,149 @@
+.ShoppingCart {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  min-width: 375px;
+  max-height: calc(100vh - 54px);
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 12px 15px 0px #a3a3a370;
+}
+
+.ShoppingCart ul li img:first-child {
+  width: 76px;
+  border-radius: 15px;
+}
+
+.ShoppingCart ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.ShoppingCart li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 15px;
+  padding: 10px 20px;
+  align-items: center;
+}
+
+.ShoppingCart .remove-product {
+  background-image: url(@/assets/icons/x.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+}
+
+.ShoppingCart ul li .product-name {
+  justify-self: flex-start;
+  word-wrap: break-word;
+  font-size: 0.9rem;
+}
+
+.ShoppingCart ul li .precio {
+  justify-self: flex-end;
+  font-weight: 600;
+}
+
+.ShoppingCart button {
+  width: 100%;
+}
+
+.ShoppingCart .total {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-weight: 600;
+  height: 76px;
+  background-color: var(--Textinputfield);
+  border-radius: 15px;
+  align-items: center;
+}
+
+.ShoppingCart li div:first-of-type {
+  display: grid;
+  grid-template-columns: 2.5fr 0.5fr 0.5fr;
+  width: 100%;
+}
+
+.ShoppingCart .message {
+  display: none;
+}
+
+.ShoppingCart .removed div:first-of-type .message {
+  display: flex;
+}
+
+.ShoppingCart .removed div:first-of-type .product-name {
+  display: none;
+}
+
+.ShoppingCart .removed div:first-of-type .price {
+  display: none;
+}
+
+.ShoppingCart .removed div:first-of-type {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.ShoppingCart .removed {
+  opacity: 0.3;
+  background-color: #d8d8d8;
+}
+
+.ShoppingCart > div:last-child {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-bottom: 15px;
+}
+
+.ShoppingCart > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ShoppingCart_header {
+  display: none;
+}
+
+.ShoppingCart_header img {
+  cursor: pointer;
+}
+
+.ShoppingCart .price {
+  text-align: right;
+}
+
+@media screen and (min-width: 640px) {
+  .ShoppingCart_header span {
+    font-weight: 600;
+  }
+
+  .ShoppingCart_header {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+  }
+
+  .ShoppingCart {
+    top: 54px;
+    right: 0;
+    max-width: 384px;
+    max-height: unset;
+  }
+
+  .ShoppingCart ul {
+    overflow-y: scroll;
+    height: 400px;
+  }
+}

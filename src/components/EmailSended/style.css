@@ -1,0 +1,62 @@
+.header {
+  display: none;
+}
+
+.EmailSended {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding-top: 80px;
+  margin: 0 auto;
+}
+
+.EmailSended h1 {
+  margin-bottom: 70px;
+}
+
+.EmailSended > div {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.EmailSended form img {
+  width: 153px;
+}
+
+.EmailSended form {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  justify-content: space-between;
+}
+
+.EmailSended .form-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.EmailSended .form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.EmailSended .form-buttons > p {
+  font-size: 0.8rem;
+}
+
+@media screen and (min-width: 640px) {
+  .header {
+    display: grid;
+  }
+  .EmailSended {
+    padding-top: 0;
+    justify-content: center;
+  }
+  .EmailSended .brand {
+    display: none;
+  }
+}

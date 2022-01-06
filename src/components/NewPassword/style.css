@@ -1,0 +1,64 @@
+.header {
+  display: none;
+}
+
+.NewPassword {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  padding-top: 80px;
+  margin: 0 auto;
+}
+
+.NewPassword h1 {
+  margin-bottom: 70px;
+}
+
+.NewPassword > div {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.NewPassword form {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  justify-content: space-between;
+}
+
+.NewPassword .form-items {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.NewPassword .form-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.NewPassword .form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.NewPassword .form-buttons > p {
+  font-size: 0.8rem;
+}
+
+@media screen and (min-width: 640px) {
+  .header {
+    display: grid;
+  }
+  .NewPassword {
+    padding-top: 0;
+    justify-content: center;
+  }
+  .NewPassword .brand {
+    display: none;
+  }
+}

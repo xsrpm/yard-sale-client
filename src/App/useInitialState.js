@@ -5,6 +5,10 @@ export function useInitialState() {
     cart: {
       items: [],
       open: false
+    },
+    productDetail: {
+      product: {},
+      open: false
     }
   }
   const [state, setState] = useState(initialState)
@@ -49,6 +53,10 @@ export function useInitialState() {
       cart: {
         ...state.cart,
         open: !state.cart.open
+      },
+      productDetail: {
+        ...state.productDetail,
+        open: false
       }
     })
   }
@@ -63,12 +71,37 @@ export function useInitialState() {
     return item ? true : false
   }
 
+  const showInProductDetail = (product) => {
+    setState({
+      ...state,
+      productDetail: {
+        product,
+        open: true
+      },
+      cart: {
+        items: state.cart.items,
+        open: false
+      }
+    })
+  }
+  const closeProductDetail = () => {
+    setState({
+      ...state,
+      productDetail: {
+        product: {},
+        open: false
+      }
+    })
+  }
+
   return {
     state,
     addToCart,
     removeFromCart,
     toggleCart,
     productInCart,
-    totalCartPrice
+    totalCartPrice,
+    showInProductDetail,
+    closeProductDetail
   }
 }

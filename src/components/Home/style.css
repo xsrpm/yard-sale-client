@@ -107,6 +107,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .Home .product-image .message {

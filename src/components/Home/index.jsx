@@ -7,6 +7,7 @@ import { Header } from '../Header'
 import { useParams } from 'react-router-dom'
 import { ShoppingCart } from '../ShopingCart'
 import { AppContext } from '../../App/AppContext'
+import { ProductDetails } from '../ProductDetails'
 
 export function Home() {
   const [products, setProducts] = useState([])
@@ -14,7 +15,8 @@ export function Home() {
   const [search, setSearch] = useState('')
   const [categories, setCategories] = useState([])
   let params = useParams()
-  const { addToCart, productInCart } = useContext(AppContext)
+  const { addToCart, productInCart, showInProductDetail } =
+    useContext(AppContext)
   useEffect(() => {
     fetch('https://api.escuelajs.co/api/v1/categories')
       .then((response) => response.json())
@@ -84,7 +86,10 @@ export function Home() {
           <div className='products'>
             {searchedProducts.map((product) => (
               <div key={product.id} className='product'>
-                <div className='product-image'>
+                <div
+                  className='product-image'
+                  onClick={() => showInProductDetail(product)}
+                >
                   <img src={product.images[0]} alt='product' />
                   <div className='message'>Removed from cart</div>
                 </div>
@@ -110,6 +115,7 @@ export function Home() {
           </div>
         </article>
         <ShoppingCart />
+        <ProductDetails />
       </main>
     </>
   )

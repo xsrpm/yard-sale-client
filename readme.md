@@ -4,3 +4,4 @@
 - https://vueschool.io/articles/vuejs-tutorials/import-aliases-in-vite/
 - https://reactrouter.com/docs/en/v6/getting-started/overview
 - https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type
+- https://github.com/platzi/react-practico/issues

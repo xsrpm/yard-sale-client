@@ -34,6 +34,7 @@
 .header__menu img {
   width: 23px;
   height: 17.54px;
+  cursor: pointer;
 }
 
 .header__menu picture {
@@ -129,6 +130,7 @@
     align-items: center;
     gap: 4%;
     padding: 0 20px;
+    font-weight: 600;
   }
 
   .header__filter-nav ul li a {

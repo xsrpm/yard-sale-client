@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { AppContext } from '../../App/AppContext'
 
 import iconMenu from '@/assets/icons/icon_menu.svg'
@@ -9,7 +9,13 @@ import arrowDown from '@/assets/icons/arrow-down.svg'
 import iconCartNotification from '@/assets/icons/icon_shopping-cart-notification.svg'
 import './style.css'
 
+import { MenuMobile } from '../MenuMobile'
+
 export function Header({ categories }) {
+  const [menuMobileOpen, setMenuMobileOpen] = useState(false)
+  const handleClickMenuImage = () => {
+    setMenuMobileOpen(!menuMobileOpen)
+  }
   const {
     state: {
       cart: { items }
@@ -18,9 +24,14 @@ export function Header({ categories }) {
   } = useContext(AppContext)
   return (
     <header className='header show-section'>
+      <MenuMobile
+        isOpen={menuMobileOpen}
+        categories={categories}
+        handleClickClose={handleClickMenuImage}
+      />
       <div className='header__menu'>
         <picture>
-          <img src={iconMenu} alt='menu logo' />
+          <img src={iconMenu} alt='menu logo' onClick={handleClickMenuImage} />
         </picture>
         <nav className='header__filter-nav'>
           <ul>
@@ -30,7 +41,7 @@ export function Header({ categories }) {
             {categories &&
               categories.map(({ id, name }) => (
                 <li key={id}>
-                  <Link to={'/category/' + name}>{name}</Link>
+                  <Link to={`/category/${name}`}>{name}</Link>
                 </li>
               ))}
           </ul>

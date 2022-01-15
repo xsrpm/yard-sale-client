@@ -1,0 +1,98 @@
+/*logged-in to logged in*/
+.MenuMobile {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 20px 18px 56px 39px;
+  height: 100vh;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.MenuMobile > div:first-of-type {
+  text-align: right;
+}
+
+.MenuMobile > div:first-of-type img {
+  cursor: pointer;
+}
+
+.MenuMobile > div:nth-of-type(2) {
+  font-weight: 600;
+}
+
+.MenuMobile ul {
+  list-style: none;
+  padding: 20px 0;
+}
+
+.MenuMobile .email {
+  display: none;
+  font-size: 0.8rem;
+}
+
+.MenuMobile .sign-out {
+  display: none;
+}
+
+.MenuMobile .line {
+  display: none;
+}
+
+.MenuMobile .account {
+  display: none;
+}
+
+.MenuMobile.logged-in .line svg {
+  display: flex;
+}
+
+.MenuMobile.logged-in .account {
+  display: flex;
+  flex-direction: column;
+}
+
+.MenuMobile.logged-in .email {
+  display: flex;
+}
+
+.MenuMobile.logged-in .sign-out {
+  display: flex;
+}
+
+.MenuMobile.logged-in .log-in {
+  display: none;
+}
+
+.MenuMobile div:last-of-type {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.MenuMobile div:last-of-type p:nth-of-type(2) {
+  font-weight: 600;
+}
+
+.MenuMobile div:last-of-type p:nth-of-type(3) {
+  font-weight: 600;
+}
+
+.MenuMobile li {
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.MenuMobile li:hover {
+  color: var(--Hospitalgreen);
+  cursor: pointer;
+}
+
+.MenuMobile .line svg {
+  display: none;
+}

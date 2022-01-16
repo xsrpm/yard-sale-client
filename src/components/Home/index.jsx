@@ -2,9 +2,8 @@ import './style.css'
 import searchLogo from '@/assets/icons/search.svg'
 import arrowDown from '@/assets/icons/arrow_down_black.svg'
 import { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import { Header } from '../Header'
-import { useParams } from 'react-router-dom'
 import { ShoppingCart } from '../ShopingCart'
 import { AppContext } from '../../App/AppContext'
 import { ProductDetails } from '../ProductDetails'
@@ -14,6 +13,7 @@ export function Home() {
   const [searchedProducts, setSearchedProducts] = useState([])
   const [search, setSearch] = useState('')
   const [categories, setCategories] = useState([])
+  let location = useLocation()
   let params = useParams()
   const { addToCart, productInCart, showInProductDetail } =
     useContext(AppContext)
@@ -67,11 +67,18 @@ export function Home() {
             </div>
             <nav className='filter-nav'>
               <ul>
-                <li className='selected'>
+                <li className={location.pathname === '/' ? 'selected' : ''}>
                   <Link to='/'>All</Link>
                 </li>
                 {categories.map(({ id, name }) => (
-                  <li key={id}>
+                  <li
+                    key={id}
+                    className={
+                      location.pathname === `/category/${name}`
+                        ? 'selected'
+                        : ''
+                    }
+                  >
                     <Link to={'/category/' + name}>{name}</Link>
                   </li>
                 ))}

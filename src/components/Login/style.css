@@ -76,9 +76,11 @@
   .header {
     display: grid;
   }
+  /*
   #root {
     grid-template-rows: auto 1fr;
   }
+  */
   .Login {
     display: flex;
     flex-direction: column;

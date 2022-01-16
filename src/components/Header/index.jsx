@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useContext, useState } from 'react'
-import { AppContext } from '../../App/AppContext'
 
+import { AppContext } from '../../App/AppContext'
 import iconMenu from '@/assets/icons/icon_menu.svg'
 import iconCart from '@/assets/icons/icon_shopping-cart.svg'
 import logo from '@/assets/icons/logo.svg'
@@ -12,6 +12,7 @@ import './style.css'
 import { MenuMobile } from '../MenuMobile'
 
 export function Header({ categories }) {
+  let location = useLocation()
   const [menuMobileOpen, setMenuMobileOpen] = useState(false)
   const handleClickMenuImage = () => {
     setMenuMobileOpen(!menuMobileOpen)
@@ -35,12 +36,17 @@ export function Header({ categories }) {
         </picture>
         <nav className='header__filter-nav'>
           <ul>
-            <li className='selected'>
+            <li className={location.pathname === '/' ? 'selected' : ''}>
               <Link to='/'>All</Link>
             </li>
             {categories &&
               categories.map(({ id, name }) => (
-                <li key={id}>
+                <li
+                  key={id}
+                  className={
+                    location.pathname === `/category/${name}` ? 'selected' : ''
+                  }
+                >
                   <Link to={`/category/${name}`}>{name}</Link>
                 </li>
               ))}

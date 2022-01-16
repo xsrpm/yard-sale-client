@@ -5,4 +5,5 @@
 - https://reactrouter.com/docs/en/v6/getting-started/overview
 - https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type
 - https://github.com/platzi/react-practico/issues
+- https://reactrouter.com/docs/en/v6/api
 - https://reactrouter.com/docs/en/v6/api#usenavigate

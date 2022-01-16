@@ -50,23 +50,31 @@ export function MenuMobile({
             />
           </svg>
         </div>
-        <ul className='account'>
-          <li>My orders</li>
-          <li>My account</li>
-        </ul>
+        {isLoggedIn && (
+          <ul className='account'>
+            <li>My orders</li>
+            <li>My account</li>
+          </ul>
+        )}
       </div>
       <div>
-        <p className='email'>cemp2703@gmail.com</p>
-        <p className='sign-out'>
-          <a href='#' alt='sign out'>
-            Sign out
-          </a>
-        </p>
-        <p className='log-in'>
-          <a href='#' alt='log in'>
-            Log in
-          </a>
-        </p>
+        {isLoggedIn && (
+          <>
+            <p className='email'>cemp2703@gmail.com</p>
+            <p className='sign-out'>
+              <a href='#' alt='sign out'>
+                Sign out
+              </a>
+            </p>
+          </>
+        )}
+        {!isLoggedIn && (
+          <p className='log-in'>
+            <a href='#' alt='log in'>
+              Log in
+            </a>
+          </p>
+        )}
       </div>
     </nav>
   )

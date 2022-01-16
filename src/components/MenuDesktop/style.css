@@ -1,0 +1,63 @@
+.MenuDesktop {
+  width: 153px;
+  padding: 20px 0;
+  border-radius: 5px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.119789);
+  position: absolute;
+  top: 56px;
+  right: calc(34px + 3%);
+  display: none;
+  z-index: 2;
+  background-color: white;
+}
+
+.MenuDesktop hr {
+  margin: 0px 18px 15px 19px;
+  border: var(--Verylightpink) 1px groove;
+}
+
+.MenuDesktop ul {
+  list-style: none;
+  padding: 0 20px;
+  text-align: right;
+}
+
+.MenuDesktop p {
+  padding: 0 25px;
+  text-align: right;
+  font-weight: 600;
+  font-size: small;
+}
+
+.MenuDesktop li {
+  padding-bottom: 20px;
+  font-weight: 600;
+}
+
+.MenuDesktop li:hover {
+  color: var(--Hospitalgreen);
+  cursor: pointer;
+}
+
+.MenuDesktop picture {
+  text-align: right;
+  padding: 0 18px 0 19px;
+}
+
+.MenuDesktop img {
+  text-align: right;
+}
+
+.MenuDesktop path {
+  fill: #979797;
+}
+.MenuDesktop div {
+  display: flex;
+  margin: 5px 18px 20px 19px;
+}
+
+@media screen and (min-width: 640px) {
+  .MenuDesktop {
+    display: block;
+  }
+}

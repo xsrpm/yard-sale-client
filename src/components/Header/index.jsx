@@ -10,12 +10,17 @@ import iconCartNotification from '@/assets/icons/icon_shopping-cart-notification
 import './style.css'
 
 import { MenuMobile } from '../MenuMobile'
+import { MenuDesktop } from '../MenuDesktop'
 
 export function Header({ categories }) {
   let location = useLocation()
   const [menuMobileOpen, setMenuMobileOpen] = useState(false)
-  const handleClickMenuImage = () => {
+  const [menuDesktopOpen, setMenuDesktopOpen] = useState(false)
+  const handleClickMenuMobile = () => {
     setMenuMobileOpen(!menuMobileOpen)
+  }
+  const handleClickMenuDesktop = () => {
+    setMenuDesktopOpen(!menuDesktopOpen)
   }
   const {
     state: {
@@ -28,11 +33,15 @@ export function Header({ categories }) {
       <MenuMobile
         isOpen={menuMobileOpen}
         categories={categories}
-        handleClickClose={handleClickMenuImage}
+        handleClickClose={handleClickMenuMobile}
+      />
+      <MenuDesktop
+        isOpen={menuDesktopOpen}
+        handleClickClose={handleClickMenuDesktop}
       />
       <div className='header__menu'>
         <picture>
-          <img src={iconMenu} alt='menu logo' onClick={handleClickMenuImage} />
+          <img src={iconMenu} alt='menu logo' onClick={handleClickMenuMobile} />
         </picture>
         <nav className='header__filter-nav'>
           <ul>
@@ -67,7 +76,7 @@ export function Header({ categories }) {
           <li className='sign-in hide'>
             <a href='#'> Sign in </a>
           </li>
-          <li className='email-user'>
+          <li className='email-user' onClick={handleClickMenuDesktop}>
             <a href='#'>
               <span>cemp2703@gmail.com</span>
               <img src={arrowDown} alt='arrow down' />

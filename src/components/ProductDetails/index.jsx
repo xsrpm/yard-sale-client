@@ -14,7 +14,6 @@ export function ProductDetails() {
     closeProductDetail,
     addToCart
   } = useContext(AppContext)
-  console.log(product)
   return (
     <aside className={'ProductDetails ' + (open ? '' : 'hide')}>
       <img src={xLogo} alt='close' onClick={closeProductDetail} />

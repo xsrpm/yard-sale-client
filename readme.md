@@ -7,3 +7,8 @@
 - https://github.com/platzi/react-practico/issues
 - https://reactrouter.com/docs/en/v6/api
 - https://reactrouter.com/docs/en/v6/api#usenavigate
+
+# TODO
+
+- Titulo para header en mobile version para algunas secciones (shopping cart, my order, orders)
+- My Order tendrá ruta propia? o formará parte del home. Explorar interfaces en figma.

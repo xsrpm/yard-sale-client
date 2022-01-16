@@ -29,7 +29,7 @@ export function Header({ categories }) {
     toggleCart
   } = useContext(AppContext)
   return (
-    <header className='header show-section'>
+    <header className={'header' + ' show-section'}>
       <MenuMobile
         isOpen={menuMobileOpen}
         categories={categories}
@@ -73,10 +73,10 @@ export function Header({ categories }) {
 
       <div className='header__user-menu'>
         <ul>
-          <li className='sign-in hide'>
+          <li className='sign-in'>
             <a href='#'> Sign in </a>
           </li>
-          <li className='email-user' onClick={handleClickMenuDesktop}>
+          <li className='email-user hide' onClick={handleClickMenuDesktop}>
             <a href='#'>
               <span>cemp2703@gmail.com</span>
               <img src={arrowDown} alt='arrow down' />

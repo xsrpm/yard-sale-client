@@ -7,28 +7,25 @@ import { Header } from '../Header'
 import { ShoppingCart } from '../ShopingCart'
 import { AppContext } from '../../App/AppContext'
 import { ProductDetails } from '../ProductDetails'
+import { useFetch } from '../../App/useFetch'
 
 export function Home() {
   const [products, setProducts] = useState([])
-  const [searchedProducts, setSearchedProducts] = useState([])
   const [search, setSearch] = useState('')
-  const [categories, setCategories] = useState([])
+
   let location = useLocation()
   let params = useParams()
   const { addToCart, productInCart, showInProductDetail } =
     useContext(AppContext)
-  useEffect(() => {
-    fetch('https://api.escuelajs.co/api/v1/categories')
-      .then((response) => response.json())
-      .then((data) => {
-        setCategories(data)
-      })
-  }, [])
+  const categories = useFetch({
+    url: 'https://api.escuelajs.co/api/v1/categories'
+  })
+  const [searchedProducts, setSearchedProducts] = useState([])
+
   useEffect(() => {
     fetch('https://api.escuelajs.co/api/v1/products?limit=20&offset=0')
-      .then((response) => response.json())
+      .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         let newData = data
         if (params.category) {
           newData = newData.filter(
@@ -38,10 +35,8 @@ export function Home() {
         setSearch('')
         setProducts(newData)
         setSearchedProducts(newData)
-        console.log(newData)
       })
-    return () => {}
-  }, [params.category])
+  }, [params.categories])
   const onTextSearchChange = (e) => {
     setSearch(e.target.value)
     setSearchedProducts(

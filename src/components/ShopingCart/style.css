@@ -52,6 +52,7 @@
 
 .ShoppingCart button {
   width: 100%;
+  cursor: pointer;
 }
 
 .ShoppingCart .total {

@@ -2,6 +2,7 @@ import './style.css'
 import arrowLeft from '@/assets/icons/arrow-left.svg'
 import { AppContext } from '../../App/AppContext'
 import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 export function ShoppingCart() {
   const {
     state: {
@@ -46,7 +47,9 @@ export function ShoppingCart() {
             <span>$</span> <span>{totalCartPrice()}</span>
           </p>
         </div>
-        <button className='primary-button'>Checkout</button>
+        <Link to='/my-order'>
+          <button className='primary-button'>Checkout</button>
+        </Link>
       </div>
     </aside>
   )

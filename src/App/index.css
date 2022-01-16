@@ -11,6 +11,8 @@
   --Black: #000000;
   --Hospitalgreen: #acd9b2;
   --Dark: #232830;
+  --HeaderMobileHeight: 46px;
+  --HeaderDesktopHeight: 54px;
   /*font-size: 62.5%;*/
   /* font-family: 'Roboto', sans-serif; */
   font-family: 'Quicksand', sans-serif;
@@ -18,7 +20,6 @@
 
 main {
   display: grid;
-  grid-template-columns: 1fr auto;
 }
 
 body {
@@ -29,7 +30,7 @@ body {
   position: relative;
   display: grid;
   height: 100vh;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: var(--HeaderMobileHeight) 1fr;
 }
 
 input {
@@ -128,6 +129,9 @@ a {
 }
 
 @media screen and (min-width: 640px) {
+  #root {
+    grid-template-rows: var(--HeaderDesktopHeight) 1fr;
+  }
   .thin-width {
     max-width: 340px;
   }

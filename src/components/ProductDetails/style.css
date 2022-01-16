@@ -1,11 +1,11 @@
 .ProductDetails {
+  position: absolute;
   min-width: 375px;
   background-color: var(--White);
-  min-height: calc(100vh - 54px);
+  height: calc(100vh - var(--HeaderMobileHeight));
   width: 100%;
   display: grid;
   grid-template-rows: auto auto 1fr;
-  max-width: 375px;
   margin: 0 auto;
 }
 
@@ -74,11 +74,9 @@
     position: relative;
   }
   .ProductDetails {
-    position: absolute;
+    height: calc(100vh - var(--HeaderMobileHeight));
     right: 0;
     max-width: 384px;
-    max-height: 384px;
-    top: 54px;
   }
 
   .ProductDetails > img {

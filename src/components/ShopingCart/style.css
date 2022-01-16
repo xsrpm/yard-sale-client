@@ -4,7 +4,7 @@
   justify-content: space-between;
   flex-direction: column;
   min-width: 375px;
-  max-height: calc(100vh - 54px);
+  height: calc(100vh - var(--HeaderMobileHeight));
   width: 100%;
   background-color: white;
   box-shadow: 0px 12px 15px 0px #a3a3a370;
@@ -136,7 +136,7 @@
   }
 
   .ShoppingCart {
-    top: 54px;
+    height: calc(100vh - var(--HeaderDesktopHeight));
     right: 0;
     max-width: 384px;
     max-height: unset;
@@ -144,6 +144,5 @@
 
   .ShoppingCart ul {
     overflow-y: scroll;
-    height: 400px;
   }
 }

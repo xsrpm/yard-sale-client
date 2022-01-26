@@ -1,6 +1,6 @@
 import './style.css'
 import arrowLeft from '@/assets/icons/arrow-left.svg'
-import { AppContext } from '../../App/AppContext'
+import { AppContext } from '../../routes/AppContext'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 export function ShoppingCart() {

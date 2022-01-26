@@ -7,6 +7,7 @@
 - https://github.com/platzi/react-practico/issues
 - https://reactrouter.com/docs/en/v6/api
 - https://reactrouter.com/docs/en/v6/api#usenavigate
+- https://developer.mozilla.org/en-US/docs/Web/API/FormData
 
 # TODO
 

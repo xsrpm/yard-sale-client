@@ -4,7 +4,7 @@ import oval from '../../assets/icons/Oval.svg'
 import ovalSelected from '../../assets/icons/Oval-selected.svg'
 import './style.css'
 import { useContext } from 'react'
-import { AppContext } from '../../App/AppContext'
+import { AppContext } from '../../routes/AppContext'
 
 export function ProductDetails() {
   const {

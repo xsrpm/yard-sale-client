@@ -1,7 +1,8 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useContext, useState } from 'react'
 
-import { AppContext } from '../../App/AppContext'
+import { useFetch } from '../../hooks/useFetch'
+import { AppContext } from '../../routes/AppContext'
 import iconMenu from '@/assets/icons/icon_menu.svg'
 import iconCart from '@/assets/icons/icon_shopping-cart.svg'
 import logo from '@/assets/icons/logo.svg'
@@ -12,7 +13,10 @@ import './style.css'
 import { MenuMobile } from '../MenuMobile'
 import { MenuDesktop } from '../MenuDesktop'
 
-export function Header({ categories }) {
+export function Header() {
+  const categories = useFetch({
+    url: 'https://api.escuelajs.co/api/v1/categories'
+  })
   let location = useLocation()
   const [menuMobileOpen, setMenuMobileOpen] = useState(false)
   const [menuDesktopOpen, setMenuDesktopOpen] = useState(false)

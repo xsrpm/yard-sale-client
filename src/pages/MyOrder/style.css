@@ -45,7 +45,7 @@
 .MyOrder li div {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2.5fr 0.5fr 0.5fr;
 }
 
 .MyOrder li div .price {

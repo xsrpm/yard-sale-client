@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 export function useInitialState() {
   const initialState = {
@@ -12,7 +13,7 @@ export function useInitialState() {
     },
     orders: []
   }
-  const [state, setState] = useState(initialState)
+  const [state, setState] = useLocalStorage('appState', initialState)
 
   const addToCart = (product) => {
     const cartItems = state.cart.items

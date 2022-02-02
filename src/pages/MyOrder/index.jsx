@@ -1,11 +1,28 @@
 import { useContext } from 'react'
+import { useParams } from 'react-router-dom'
 import { AppContext } from '../../routes/AppContext'
 import './style.css'
 
 export function MyOrder() {
-  const { lastOrder, totalPrice } = useContext(AppContext)
-  const { id, items } = lastOrder() ? lastOrder() : { id: null, items: [] }
-  const dateId = new Date(id)
+  let { id } = useParams()
+  const {
+    state: { orders },
+    lastOrder,
+    totalPrice
+  } = useContext(AppContext)
+  let order
+  if (!id) {
+    order = lastOrder() ? lastOrder() : { id: null, items: [] }
+    id = order.id
+  } else {
+    order = orders.find((order) => order.id === parseInt(id)) || {
+      id: null,
+      items: []
+    }
+    console.log(order)
+  }
+  const { items } = order
+  const dateId = new Date(parseInt(id))
 
   function withOrders() {
     return (

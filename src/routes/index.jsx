@@ -18,8 +18,10 @@ export function App() {
               <Route path='category/:category' element={<Home />} />
               <Route index element={<Home />} />
             </Route>
-            <Route path='/my-order' element={<MyOrder />}></Route>
-            <Route path='/orders' element={<MyOrders />}></Route>
+            <Route path='order' element={<MyOrder />}>
+              <Route path=':id' element={<MyOrder />} />
+            </Route>
+            <Route path='orders' element={<MyOrders />}></Route>
           </Routes>
         </Layout>
       </BrowserRouter>

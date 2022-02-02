@@ -18,7 +18,7 @@ export function ShoppingCart() {
     if (items.length > 0) {
       toggleCart()
       newOrder(items)
-      navigate('/my-order')
+      navigate('/order')
     }
   }
   return (

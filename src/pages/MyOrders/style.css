@@ -10,15 +10,20 @@
 }
 
 .MyOrders li {
-  display: flex;
-  justify-content: space-between;
   padding: 10px 27px 10px 25px;
+  list-style: none;
 }
 
 .MyOrders li:hover {
   background-color: var(--Verylightpink);
   border-radius: 7px;
   cursor: pointer;
+}
+
+.MyOrders li a {
+  color: initial;
+  display: flex;
+  justify-content: space-between;
 }
 
 .MyOrders li div:last-of-type {

@@ -77,10 +77,10 @@ export function Header() {
 
       <div className='header__user-menu'>
         <ul>
-          <li className='sign-in'>
+          <li className='sign-in hide'>
             <a href='#'> Sign in </a>
           </li>
-          <li className='email-user hide' onClick={handleClickMenuDesktop}>
+          <li className='email-user ' onClick={handleClickMenuDesktop}>
             <a href='#'>
               <span>cemp2703@gmail.com</span>
               <img src={arrowDown} alt='arrow down' />

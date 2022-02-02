@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AppContext } from './AppContext'
 import { useInitialState } from './useInitialState'
 import { MyOrder } from '../pages/MyOrder'
+import { MyOrders } from '../pages/MyOrders'
 import { Home } from '../pages/Home'
 import { Layout } from '../components/Layout'
 import './index.css'
@@ -18,6 +19,7 @@ export function App() {
               <Route index element={<Home />} />
             </Route>
             <Route path='/my-order' element={<MyOrder />}></Route>
+            <Route path='/orders' element={<MyOrders />}></Route>
           </Routes>
         </Layout>
       </BrowserRouter>

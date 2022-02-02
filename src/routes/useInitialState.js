@@ -9,7 +9,8 @@ export function useInitialState() {
     productDetail: {
       product: {},
       open: false
-    }
+    },
+    orders: []
   }
   const [state, setState] = useState(initialState)
 
@@ -60,8 +61,19 @@ export function useInitialState() {
       }
     })
   }
-  const totalCartPrice = () => {
-    return state.cart.items.reduce((acc, item) => {
+
+  const clearCart = () => {
+    setState({
+      ...state,
+      cart: {
+        items: [],
+        open: false
+      }
+    })
+  }
+
+  const totalPrice = (items) => {
+    return items.reduce((acc, item) => {
       return acc + item.price * item.quantity
     }, 0)
   }
@@ -94,14 +106,32 @@ export function useInitialState() {
     })
   }
 
+  const newOrder = (items) => {
+    const order = {
+      id: Date.now(),
+      items: [...items]
+    }
+    setState({
+      ...state,
+      orders: [...state.orders, order]
+    })
+  }
+
+  const lastOrder = () => {
+    return state.orders[state.orders.length - 1] || null
+  }
+
   return {
     state,
     addToCart,
     removeFromCart,
+    clearCart,
     toggleCart,
     productInCart,
-    totalCartPrice,
+    totalPrice,
     showInProductDetail,
-    closeProductDetail
+    closeProductDetail,
+    newOrder,
+    lastOrder
   }
 }

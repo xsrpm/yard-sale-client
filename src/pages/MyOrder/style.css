@@ -73,9 +73,8 @@
 
 @media screen and (min-width: 640px) {
   .MyOrder {
-    padding: 18px 0px;
+    padding: 120px 0px;
     display: flex;
-    justify-content: center;
   }
 
   .MyOrder h3 {

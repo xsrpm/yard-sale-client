@@ -2,16 +2,25 @@ import './style.css'
 import arrowLeft from '@/assets/icons/arrow-left.svg'
 import { AppContext } from '../../routes/AppContext'
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 export function ShoppingCart() {
+  let navigate = useNavigate()
   const {
     state: {
       cart: { items, open }
     },
     removeFromCart,
     toggleCart,
-    totalCartPrice
+    totalPrice,
+    newOrder
   } = useContext(AppContext)
+  const handleCheckout = () => {
+    if (items.length > 0) {
+      toggleCart()
+      newOrder(items)
+      navigate('/my-order')
+    }
+  }
   return (
     <aside className={'ShoppingCart ' + (open ? '' : 'hide')}>
       <div>
@@ -44,12 +53,15 @@ export function ShoppingCart() {
         <div className='total'>
           <p>Total</p>
           <p>
-            <span>$</span> <span>{totalCartPrice()}</span>
+            <span>$</span> <span>{totalPrice(items)}</span>
           </p>
         </div>
-        <Link to='/my-order'>
-          <button className='primary-button'>Checkout</button>
-        </Link>
+        <button
+          className={'primary-button' + (items.length > 0 ? '' : ' no-visible')}
+          onClick={handleCheckout}
+        >
+          Checkout
+        </button>
       </div>
     </aside>
   )

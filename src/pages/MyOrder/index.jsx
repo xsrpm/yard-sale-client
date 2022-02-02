@@ -3,30 +3,32 @@ import { AppContext } from '../../routes/AppContext'
 import './style.css'
 
 export function MyOrder() {
-  const {
-    state: {
-      cart: { items }
-    },
-    totalCartPrice
-  } = useContext(AppContext)
-  console.log(items.length)
-  return (
-    <article className='MyOrder'>
-      <h3>My order</h3>
+  const { lastOrder, totalPrice } = useContext(AppContext)
+  const { id, items } = lastOrder() ? lastOrder() : { id: null, items: [] }
+  const dateId = new Date(id)
+
+  function withOrders() {
+    return (
       <div>
         <div>
           <div>
-            <p className='date'>04.25.2021</p>
+            <p className='date'>
+              {dateId.getMonth().toString().padStart(2, '00') +
+                '.' +
+                dateId.getDay().toString().padStart(2, '00') +
+                '.' +
+                dateId.getFullYear()}
+            </p>
             <p className='n-articles'>{items.length} articles</p>
           </div>
           <p className='price'>
             <span>$ </span>
-            <span>{totalCartPrice()}</span>
+            <span>{totalPrice(items)}</span>
           </p>
         </div>
         <ul>
           {items.map(({ id, title, price, quantity, images }) => (
-            <li>
+            <li key={id}>
               <img src={images[0]} alt='' />
               <div>
                 <p className='product-name'>{title}</p>
@@ -40,6 +42,17 @@ export function MyOrder() {
           ))}
         </ul>
       </div>
+    )
+  }
+
+  function withoutOrders() {
+    return <div>There is no order</div>
+  }
+
+  return (
+    <article className='MyOrder'>
+      <h3>My order</h3>
+      {id ? withOrders() : withoutOrders()}
     </article>
   )
 }

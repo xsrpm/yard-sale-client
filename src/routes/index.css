@@ -96,6 +96,9 @@ a {
 .hide {
   display: none;
 }
+.no-visible {
+  visibility: hidden;
+}
 
 .primary-button {
   font-family: 'Quicksand', sans-serif;

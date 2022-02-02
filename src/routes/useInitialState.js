@@ -114,7 +114,11 @@ export function useInitialState() {
     }
     setState({
       ...state,
-      orders: [...state.orders, order]
+      orders: [...state.orders, order],
+      cart: {
+        items: [],
+        open: false
+      }
     })
   }
 

@@ -11,5 +11,4 @@
 
 # TODO
 
-- Titulo para header en mobile version para algunas secciones (shopping cart, my order, orders)
-- My Order tendrá ruta propia? o formará parte del home. Explorar interfaces en figma.
+- Título para header en mobile version para algunas secciones (shopping cart, my order, orders)

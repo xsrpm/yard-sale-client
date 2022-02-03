@@ -110,6 +110,7 @@ a {
   border-radius: 10px;
   border: transparent;
   padding: 16px 0;
+  cursor: pointer;
 }
 
 .secondary-button {
@@ -124,6 +125,7 @@ a {
   border: var(--Hospitalgreen) 2px solid;
   text-align: center;
   background-color: var(--White);
+  cursor: pointer;
 }
 
 .thin-width {

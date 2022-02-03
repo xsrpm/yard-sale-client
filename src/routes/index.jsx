@@ -6,6 +6,8 @@ import { MyOrders } from '../pages/MyOrders'
 import { Home } from '../pages/Home'
 import { Layout } from '../components/Layout'
 import './index.css'
+import { MyAccount } from '../pages/MyAccount'
+import { MyAccountEdit } from '../pages/MyAccountEdit'
 
 export function App() {
   const initialState = useInitialState()
@@ -22,6 +24,8 @@ export function App() {
               <Route path=':id' element={<MyOrder />} />
             </Route>
             <Route path='orders' element={<MyOrders />}></Route>
+            <Route path='account/edit' element={<MyAccountEdit />}></Route>
+            <Route path='account' element={<MyAccount />} />
           </Routes>
         </Layout>
       </BrowserRouter>

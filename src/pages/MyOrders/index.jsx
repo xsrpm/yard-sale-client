@@ -10,9 +10,8 @@ export function MyOrders() {
     state: { orders },
     totalPrice
   } = useContext(AppContext)
-  return (
-    <article className='MyOrders'>
-      <h3>My orders</h3>
+  function withOrders() {
+    return (
       <ul>
         {orders.map(({ id, items }) => (
           <li key={id}>
@@ -40,6 +39,12 @@ export function MyOrders() {
           </li>
         ))}
       </ul>
+    )
+  }
+  return (
+    <article className='MyOrders'>
+      <h3>My orders</h3>
+      {orders.length > 0 ? withOrders() : <p>You have no orders yet</p>}
     </article>
   )
 }

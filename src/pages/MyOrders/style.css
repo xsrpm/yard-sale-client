@@ -32,6 +32,10 @@
   align-items: center;
 }
 
+.MyOrders > p {
+  padding: 10px 10px 30px 10px;
+}
+
 .MyOrders .date {
   font-weight: 600;
   font-size: 1rem;

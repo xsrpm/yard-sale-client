@@ -1,9 +1,16 @@
+import { useNavigate } from 'react-router-dom'
 import './style.css'
 
 export function MyAccount() {
+  const navigate = useNavigate()
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log('edit')
+    navigate('/account/edit')
+  }
   return (
     <article className='my-account thin-width'>
-      <form method='post'>
+      <form method='post' onSubmit={handleSubmit}>
         <div>
           <h2>My account</h2>
           <div className='form-items'>

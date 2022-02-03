@@ -1,13 +1,13 @@
 .ShoppingCart {
   position: absolute;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   min-width: 375px;
-  height: calc(100vh - var(--HeaderMobileHeight));
+  height: calc(100vh - var(--HeaderMobileHeight) - 3px);
   width: 100%;
   background-color: white;
   box-shadow: 0px 12px 15px 0px #a3a3a370;
+  top: calc(var(--HeaderMobileHeight) + 3px);
 }
 
 .ShoppingCart ul li img:first-child {
@@ -19,6 +19,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .ShoppingCart li {
@@ -109,7 +110,6 @@
 
 .ShoppingCart > div:first-child {
   display: flex;
-  flex-direction: column;
   gap: 20px;
 }
 
@@ -125,6 +125,11 @@
   text-align: right;
 }
 
+.ShoppingCart .disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
 @media screen and (min-width: 640px) {
   .ShoppingCart_header span {
     font-weight: 600;
@@ -137,13 +142,10 @@
   }
 
   .ShoppingCart {
-    height: calc(100vh - var(--HeaderDesktopHeight));
+    height: calc(99.5vh - var(--HeaderDesktopHeight));
     right: 0;
     max-width: 384px;
     max-height: unset;
-  }
-
-  .ShoppingCart ul {
-    overflow-y: scroll;
+    top: calc(var(--HeaderDesktopHeight) + 2px);
   }
 }

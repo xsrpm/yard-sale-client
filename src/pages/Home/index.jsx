@@ -4,7 +4,6 @@ import arrowDown from '@/assets/icons/arrow_down_black.svg'
 import { useContext, useEffect, useState } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
 import { AppContext } from '../../routes/AppContext'
-import { ShoppingCart } from '../../components/ShoppingCart'
 import { ProductDetails } from '../../components/ProductDetails'
 import { useFetch } from '../../hooks/useFetch'
 
@@ -107,7 +106,6 @@ export function Home() {
           ))}
         </div>
       </article>
-      <ShoppingCart />
       <ProductDetails />
     </>
   )

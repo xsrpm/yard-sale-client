@@ -76,6 +76,10 @@
   display: none;
 }
 
+.header__section a {
+  color: initial;
+}
+
 .header .brand {
   font-size: 0.8rem;
   display: flex;

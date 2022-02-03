@@ -12,6 +12,7 @@ import './style.css'
 
 import { MenuMobile } from '../MenuMobile'
 import { MenuDesktop } from '../MenuDesktop'
+import { ShoppingCart } from '../ShoppingCart'
 
 export function Header() {
   const categories = useFetch({
@@ -43,6 +44,7 @@ export function Header() {
         isOpen={menuDesktopOpen}
         handleClickClose={handleClickMenuDesktop}
       />
+      <ShoppingCart />
       <div className='header__menu'>
         <picture>
           <img src={iconMenu} alt='menu logo' onClick={handleClickMenuMobile} />
@@ -67,11 +69,13 @@ export function Header() {
         </nav>
       </div>
       <div className='header__section'>
-        <h1 className='brand brand-medium'>
-          <img src={logo} alt='logo' />
-          <span>yard</span>
-          <span>Sale</span>
-        </h1>
+        <Link to='/'>
+          <h1 className='brand brand-medium'>
+            <img src={logo} alt='logo' />
+            <span>yard</span>
+            <span>Sale</span>
+          </h1>
+        </Link>
         <p>Shopping cart</p>
       </div>
 

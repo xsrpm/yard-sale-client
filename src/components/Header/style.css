@@ -1,6 +1,6 @@
 .header {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: auto 1fr auto;
   width: 100%;
   align-content: center;
   align-items: center;
@@ -23,6 +23,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow-x: auto;
+  margin: 0 10px;
 }
 
 .header__menu > picture {
@@ -47,7 +49,7 @@
 .header__user-menu {
   display: flex;
   justify-content: flex-end;
-  gap: 5%;
+  gap: 10px;
 }
 
 .header__user-menu > picture:hover {
@@ -107,7 +109,7 @@
 
 @media screen and (min-width: 640px) {
   .header {
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: auto 2fr 1fr;
   }
   .header .brand {
     justify-content: flex-start;
@@ -151,6 +153,15 @@
     display: flex;
   }
 
+  .header__user-menu ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
   .header__user-menu > span {
     width: 30px;
     height: 30px;
@@ -170,15 +181,5 @@
 
   .shopping-cart-icon-off .header__user-menu {
     visibility: visible;
-  }
-}
-
-@media screen and (min-width: 830px) {
-  .header__user-menu ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    font-size: 0.8rem;
-    font-weight: 600;
   }
 }

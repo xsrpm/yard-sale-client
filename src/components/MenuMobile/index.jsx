@@ -24,57 +24,47 @@ export function MenuMobile({
         <img src={logoX} alt='close menu' onClick={handleClickClose} />
       </div>
       <div>
-        <p>CATEGORIES</p>
-        <ul>
-          <li onClick={() => handleRedirect('/')}>All</li>
-          {categories &&
-            categories.map(({ id, name }) => (
-              <li key={id} onClick={() => handleRedirect(`/category/${name}`)}>
-                {name}
-              </li>
-            ))}
-        </ul>
-        <div className='line'>
-          <svg
-            width='297'
-            height='1'
-            viewBox='0 0 297 1'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path
-              opacity='0.2'
-              d='M0.5 0.5H296.5'
-              stroke='#979797'
-              strokeLinecap='square'
-            />
-          </svg>
-        </div>
-        {isLoggedIn && (
-          <ul className='account'>
-            <li>My orders</li>
-            <li>My account</li>
+        <div>
+          <p>CATEGORIES</p>
+          <ul>
+            <li onClick={() => handleRedirect('/')}>All</li>
+            {categories &&
+              categories.map(({ id, name }) => (
+                <li
+                  key={id}
+                  onClick={() => handleRedirect(`/category/${name}`)}
+                >
+                  {name}
+                </li>
+              ))}
           </ul>
-        )}
-      </div>
-      <div>
-        {isLoggedIn && (
-          <>
-            <p className='email'>cemp2703@gmail.com</p>
-            <p className='sign-out'>
-              <a href='#' alt='sign out'>
-                Sign out
+          <hr className='line' />
+          {isLoggedIn && (
+            <ul className='account'>
+              <li onClick={() => handleRedirect('/orders')}>My orders</li>
+              <li onClick={() => handleRedirect('/account')}>My account</li>
+            </ul>
+          )}
+        </div>
+        <div>
+          {isLoggedIn && (
+            <>
+              <p className='email'>cemp2703@gmail.com</p>
+              <p className='sign-out'>
+                <a href='#' alt='sign out'>
+                  Sign out
+                </a>
+              </p>
+            </>
+          )}
+          {!isLoggedIn && (
+            <p className='log-in'>
+              <a href='#' alt='log in'>
+                Log in
               </a>
             </p>
-          </>
-        )}
-        {!isLoggedIn && (
-          <p className='log-in'>
-            <a href='#' alt='log in'>
-              Log in
-            </a>
-          </p>
-        )}
+          )}
+        </div>
       </div>
     </nav>
   )

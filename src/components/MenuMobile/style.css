@@ -1,8 +1,8 @@
 /*logged-in to logged in*/
 .MenuMobile {
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  padding: 20px 18px 56px 39px;
+  grid-template-rows: auto 1fr;
+  padding: 20px 18px 56px 18px;
   height: 100vh;
   background-color: #fff;
   position: fixed;
@@ -20,10 +20,6 @@
   cursor: pointer;
 }
 
-.MenuMobile > div:nth-of-type(2) {
-  font-weight: 600;
-}
-
 .MenuMobile ul {
   list-style: none;
   padding: 20px 0;
@@ -39,14 +35,9 @@
 }
 
 .MenuMobile .line {
-  display: none;
 }
 
 .MenuMobile .account {
-  display: none;
-}
-
-.MenuMobile.logged-in .line svg {
   display: flex;
 }
 
@@ -67,11 +58,11 @@
   display: none;
 }
 
-.MenuMobile div:last-of-type {
-  display: flex;
+.MenuMobile > div:last-of-type {
+  display: grid;
   gap: 5px;
-  flex-direction: column;
   font-weight: 600;
+  padding: 0 11.5px;
 }
 
 .MenuMobile div:last-of-type p:nth-of-type(2) {
@@ -92,8 +83,4 @@
 .MenuMobile li:hover {
   color: var(--Hospitalgreen);
   cursor: pointer;
-}
-
-.MenuMobile .line svg {
-  display: none;
 }

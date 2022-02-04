@@ -67,7 +67,6 @@
 
 .Home .filter-nav {
   display: flex;
-  overflow-x: scroll;
 }
 
 .Home .filter-nav ul {
@@ -75,6 +74,8 @@
   display: flex;
   gap: 4%;
   align-items: center;
+  width: 80vw;
+  overflow-x: auto;
 }
 
 .Home .filter-nav ul li a {

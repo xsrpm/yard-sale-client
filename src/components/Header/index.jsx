@@ -39,6 +39,7 @@ export function Header() {
         isOpen={menuMobileOpen}
         categories={categories}
         handleClickClose={handleClickMenuMobile}
+        isLoggedIn={true}
       />
       <MenuDesktop
         isOpen={menuDesktopOpen}

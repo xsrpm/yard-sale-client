@@ -54,23 +54,21 @@ export function Home() {
               onChange={onTextSearchChange}
             />
           </div>
-          <nav className='filter-nav'>
-            <ul>
-              <li className={location.pathname === '/' ? 'selected' : ''}>
-                <Link to='/'>All</Link>
+          <ul className='filter-nav'>
+            <li className={location.pathname === '/' ? 'selected' : ''}>
+              <Link to='/'>All</Link>
+            </li>
+            {categories.map(({ id, name }) => (
+              <li
+                key={id}
+                className={
+                  location.pathname === `/category/${name}` ? 'selected' : ''
+                }
+              >
+                <Link to={'/category/' + name}>{name}</Link>
               </li>
-              {categories.map(({ id, name }) => (
-                <li
-                  key={id}
-                  className={
-                    location.pathname === `/category/${name}` ? 'selected' : ''
-                  }
-                >
-                  <Link to={'/category/' + name}>{name}</Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+            ))}
+          </ul>
           <p className='text-center hide'>
             <span>Order: </span>
             <span id='order'>Most recent </span>

@@ -66,28 +66,24 @@
 }
 
 .Home .filter-nav {
-  display: flex;
-}
-
-.Home .filter-nav ul {
   list-style: none;
   display: flex;
-  gap: 4%;
+  gap: 10px;
   align-items: center;
   width: 80vw;
   overflow-x: auto;
 }
 
-.Home .filter-nav ul li a {
+.Home .filter-nav li a {
   color: var(--Verylightpink);
   font-size: 0.9rem;
 }
 
-.Home filter-nav ul li.selected a {
+.Home filter-nav li.selected a {
   color: var(--Hospitalgreen);
 }
 
-.Home .filter-nav ul li.selected {
+.Home .filter-nav li.selected {
   border: var(--Hospitalgreen) 1px solid;
   border-radius: 10px;
   padding: 3px 10px;

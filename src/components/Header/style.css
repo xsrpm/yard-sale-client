@@ -24,7 +24,6 @@
   flex-direction: column;
   justify-content: center;
   overflow-x: auto;
-  margin: 0 10px;
 }
 
 .header__menu > picture {
@@ -50,6 +49,11 @@
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+}
+
+.header__user-menu > picture img {
+  width: 22px;
+  height: 23px;
 }
 
 .header__user-menu > picture:hover {
@@ -97,6 +101,7 @@
   display: flex;
   justify-content: center;
   font-weight: 600;
+  text-align: center;
 }
 
 .show-section .header__section h1 {

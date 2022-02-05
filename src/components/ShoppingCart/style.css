@@ -106,9 +106,7 @@
   flex-direction: column;
   gap: 15px;
   padding-bottom: 15px;
-}
-
-.ShoppingCart > div:first-child {
+  margin-top: 20px;
 }
 
 .ShoppingCart_header {

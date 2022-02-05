@@ -24,6 +24,7 @@
   flex-direction: column;
   justify-content: center;
   overflow-x: auto;
+  margin-inline: 10px;
 }
 
 .header__menu > picture {

@@ -12,3 +12,4 @@
 # TODO
 
 - Título para header en mobile version para algunas secciones (shopping cart, my order, orders)
+- optimizar la web con lighthouse

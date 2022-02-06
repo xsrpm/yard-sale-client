@@ -6,17 +6,11 @@ import './style.css'
 import { useContext } from 'react'
 import { AppContext } from '../../routes/AppContext'
 
-export function ProductDetails() {
-  const {
-    state: {
-      productDetail: { product, open }
-    },
-    closeProductDetail,
-    addToCart
-  } = useContext(AppContext)
+export function ProductDetails({ product, isOpen, onClose }) {
+  const { addToCart } = useContext(AppContext)
   return (
-    <aside className={'ProductDetails ' + (open ? '' : 'hide')}>
-      <img src={xLogo} alt='close' onClick={closeProductDetail} />
+    <aside className={'ProductDetails ' + (isOpen ? '' : 'hide')}>
+      <img src={xLogo} alt='close' onClick={onClose} />
       <div className='ProductDetails_images'>
         {product?.images?.map((image, index) => (
           <picture key={index}>

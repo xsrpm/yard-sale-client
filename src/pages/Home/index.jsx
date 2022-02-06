@@ -8,15 +8,14 @@ import { ProductDetails } from '../../components/ProductDetails'
 import { useFetch } from '../../hooks/useFetch'
 
 export function Home() {
+  const categories = useFetch({
+    url: 'https://api.escuelajs.co/api/v1/categories'
+  })
+
   let location = useLocation()
   let params = useParams()
   const [products, setProducts] = useState([])
   const [search, setSearch] = useState('')
-  const categories = useFetch({
-    url: 'https://api.escuelajs.co/api/v1/categories'
-  })
-  const { addToCart, productInCart, showInProductDetail } =
-    useContext(AppContext)
   const [searchedProducts, setSearchedProducts] = useState([])
   useEffect(() => {
     fetch('https://api.escuelajs.co/api/v1/products?limit=20&offset=0')
@@ -41,6 +40,19 @@ export function Home() {
       )
     )
   }
+
+  const { addToCart, productInCart } = useContext(AppContext)
+
+  const [productDetailsOpen, setProductDetailsOpen] = useState(false)
+  const [productDetails, setProductDetails] = useState({})
+  const handleClickProductDetails = (product) => {
+    setProductDetails(product)
+    setProductDetailsOpen(true)
+  }
+  const handleClickCloseProductDetails = () => {
+    setProductDetailsOpen(false)
+  }
+
   return (
     <>
       <article className='Home'>
@@ -80,7 +92,7 @@ export function Home() {
             <div key={product.id} className='product'>
               <div
                 className='product-image'
-                onClick={() => showInProductDetail(product)}
+                onClick={() => handleClickProductDetails(product)}
               >
                 <img src={product.images[0]} alt='product' />
                 <div className='message'>Removed from cart</div>
@@ -104,7 +116,11 @@ export function Home() {
           ))}
         </div>
       </article>
-      <ProductDetails />
+      <ProductDetails
+        product={productDetails}
+        isOpen={productDetailsOpen}
+        onClose={handleClickCloseProductDetails}
+      />
     </>
   )
 }

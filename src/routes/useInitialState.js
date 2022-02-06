@@ -7,10 +7,6 @@ export function useInitialState() {
       items: [],
       open: false
     },
-    productDetail: {
-      product: {},
-      open: false
-    },
     orders: []
   }
   const [state, setState] = useLocalStorage('appState', initialState)
@@ -55,10 +51,6 @@ export function useInitialState() {
       cart: {
         ...state.cart,
         open: !state.cart.open
-      },
-      productDetail: {
-        ...state.productDetail,
-        open: false
       }
     })
   }
@@ -82,29 +74,6 @@ export function useInitialState() {
     const cartItems = state.cart.items
     const item = cartItems.find((item) => item.id === productId)
     return item ? true : false
-  }
-
-  const showInProductDetail = (product) => {
-    setState({
-      ...state,
-      productDetail: {
-        product,
-        open: true
-      },
-      cart: {
-        items: state.cart.items,
-        open: false
-      }
-    })
-  }
-  const closeProductDetail = () => {
-    setState({
-      ...state,
-      productDetail: {
-        product: {},
-        open: false
-      }
-    })
   }
 
   const newOrder = (items) => {
@@ -134,8 +103,6 @@ export function useInitialState() {
     toggleCart,
     productInCart,
     totalPrice,
-    showInProductDetail,
-    closeProductDetail,
     newOrder,
     lastOrder
   }

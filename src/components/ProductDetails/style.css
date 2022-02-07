@@ -1,6 +1,5 @@
 .ProductDetails {
   position: absolute;
-  min-width: 375px;
   background-color: var(--White);
   height: calc(100vh - var(--HeaderMobileHeight));
   width: 100%;
@@ -66,7 +65,19 @@
 }
 
 .ProductDetails > img {
-  display: none;
+  position: absolute;
+  display: block;
+  padding: 10px;
+  background-color: var(--White);
+  border-radius: 50%;
+  width: 40px;
+  left: 12px;
+  top: 15px;
+  cursor: pointer;
+}
+
+.ProductDetails h2 {
+  font-size: 1.2rem;
 }
 
 @media screen and (min-width: 640px) {
@@ -77,21 +88,6 @@
     height: calc(100vh - var(--HeaderMobileHeight));
     right: 0;
     max-width: 384px;
+    min-width: 375px;
   }
-
-  .ProductDetails > img {
-    position: absolute;
-    display: block;
-    padding: 10px;
-    background-color: var(--White);
-    border-radius: 50%;
-    width: 40px;
-    left: 12px;
-    top: 15px;
-    cursor: pointer;
-  }
-}
-
-.ProductDetails h2 {
-  font-size: 1.2rem;
 }

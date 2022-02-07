@@ -12,4 +12,3 @@
 # TODO
 
 - optimizar la web con lighthouse
-- visual fix product details

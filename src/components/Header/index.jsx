@@ -29,12 +29,26 @@ export function Header() {
   }
   const {
     state: {
-      cart: { items }
+      cart: { items, open }
     },
     toggleCart
   } = useContext(AppContext)
+  const showSectionTitle = () => {
+    if (open) {
+      return [true, 'Shopping Cart']
+    } else if (location.pathname === '/order') {
+      return [true, 'My order']
+    } else if (location.pathname === '/orders') {
+      return [true, 'My orders']
+    } else {
+      return [false, '']
+    }
+  }
+
+  const [enableSectionTitle, sectionTitle] = showSectionTitle()
+
   return (
-    <header className={'header' + ' show-section'}>
+    <header className={'header' + (enableSectionTitle ? ' show-section' : '')}>
       <MenuMobile
         isOpen={menuMobileOpen}
         categories={categories}
@@ -77,7 +91,7 @@ export function Header() {
             <span>Sale</span>
           </h1>
         </Link>
-        <p>Shopping cart</p>
+        <p>{sectionTitle}</p>
       </div>
 
       <div className='header__user-menu'>

@@ -3,6 +3,7 @@ import arrowLeft from '@/assets/icons/arrow-left.svg'
 import { AppContext } from '../../routes/AppContext'
 import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { resizeImage } from '../../utils/utils'
 export function ShoppingCart() {
   let navigate = useNavigate()
   const {
@@ -30,7 +31,7 @@ export function ShoppingCart() {
       <ul>
         {items.map(({ id, title, price, quantity, images }) => (
           <li key={'cart_' + id}>
-            <img src={images[0]} alt='' />
+            <img src={resizeImage(images[0], 76, 57)} alt='' />
             <div>
               <p className='product-name'>{title}</p>
               <p className='quantity'>{quantity}</p>

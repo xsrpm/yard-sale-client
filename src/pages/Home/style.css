@@ -17,6 +17,7 @@
 
 .Home .product .product-image img {
   width: 163px;
+  height: 122px;
   border-radius: 15px;
 }
 
@@ -140,7 +141,13 @@
   background-color: var(--Textinputfield);
   border-radius: 10px;
   display: flex;
+  align-items: center;
   padding: 0 10px;
+}
+
+.Home .search-input img {
+  height: 17px;
+  width: 17px;
 }
 
 .Home .search-input input {
@@ -160,6 +167,7 @@
 
   .Home .product .product-image img {
     width: 216px;
+    height: 162px;
   }
 
   .Home {

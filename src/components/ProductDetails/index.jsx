@@ -5,6 +5,7 @@ import ovalSelected from '../../assets/icons/Oval-selected.svg'
 import './style.css'
 import { useContext } from 'react'
 import { AppContext } from '../../routes/AppContext'
+import { resizeImage } from '../../utils/utils'
 
 export function ProductDetails({ product, isOpen, onClose }) {
   const { addToCart } = useContext(AppContext)
@@ -14,7 +15,7 @@ export function ProductDetails({ product, isOpen, onClose }) {
       <div className='ProductDetails_images'>
         {product?.images?.map((image, index) => (
           <picture key={index}>
-            <img src={image} alt='product image ' />
+            <img src={resizeImage(image, 375, 281)} alt='product image ' />
           </picture>
         ))}
       </div>

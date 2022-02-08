@@ -6,6 +6,7 @@ import { Link, useLocation, useParams } from 'react-router-dom'
 import { AppContext } from '../../routes/AppContext'
 import { ProductDetails } from '../../components/ProductDetails'
 import { useFetch } from '../../hooks/useFetch'
+import { resizeImage } from '../../utils/utils'
 
 export function Home() {
   const categories = useFetch({
@@ -94,7 +95,17 @@ export function Home() {
                 className='product-image'
                 onClick={() => handleClickProductDetails(product)}
               >
-                <img src={product.images[0]} alt='product' />
+                <img
+                  src={product.images[0]}
+                  alt='product'
+                  srcSet={`${resizeImage(
+                    product.images[0],
+                    216,
+                    162
+                  )} 216w, ${resizeImage(product.images[0], 163, 122)} 163w`}
+                  sizes='(max-width: 640px) 163px, 50vw'
+                  loading='lazy'
+                />
                 <div className='message'>Removed from cart</div>
               </div>
               <div className='product-info'>

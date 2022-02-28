@@ -8,7 +8,9 @@
 - https://reactrouter.com/docs/en/v6/api
 - https://reactrouter.com/docs/en/v6/api#usenavigate
 - https://developer.mozilla.org/en-US/docs/Web/API/FormData
+- https://github.com/antfu/vite-plugin-pwa
+- https://vite-plugin-pwa.netlify.app/guide/
+- https://web.dev/learn/pwa/
+- https://github.com/antfu/vite-plugin-pwa/issues/156
 
 # TODO
-
-- optimizar la web con lighthouse

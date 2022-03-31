@@ -1,0 +1,30 @@
+.FilterCategory {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 88vw;
+    overflow-x: auto;
+  }
+  
+ .FilterCategory li a {
+    color: var(--Verylightpink);
+    font-size: 0.9rem;
+  }
+  
+  .FilterCategory li.selected a {
+    color: var(--Hospitalgreen);
+  }
+  
+  .FilterCategory li.selected {
+    border: var(--Hospitalgreen) 1px solid;
+    border-radius: 10px;
+    padding: 3px 10px;
+    display: flex;
+  }
+
+  @media screen and (min-width: 640px) {
+    .FilterCategory {
+        display: none;
+      }
+    }

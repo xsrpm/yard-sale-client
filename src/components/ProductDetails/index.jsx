@@ -10,7 +10,7 @@ import { AppContext } from '../../AppContext'
 export function ProductDetails({ product, isOpen, onClose }) {
   const { addToCart } = useContext(AppContext)
   return (
-    <aside className={'ProductDetails ' + (isOpen ? '' : 'hide')}>
+    <div className={'ProductDetails ' + (isOpen ? '' : 'hide')}>
       <img src={xLogo} alt='close' onClick={onClose} />
       <div className='ProductDetails_images'>
         {product?.images?.map((image, index) => (
@@ -36,6 +36,6 @@ export function ProductDetails({ product, isOpen, onClose }) {
           <span>Add to cart</span>
         </button>
       </div>
-    </aside>
+    </div>
   )
 }

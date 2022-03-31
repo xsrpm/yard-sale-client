@@ -1,0 +1,103 @@
+.ProductList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(auto, 163px));
+    gap: 20px;
+    justify-content: center;
+    overflow-y: auto;
+    height: 63vh;
+  }
+  
+  .ProductList .product-info {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .ProductList .product .product-image img {
+    width: 163px;
+    height: 122px;
+    border-radius: 15px;
+  }
+  
+  .ProductList .product-info > div:last-child {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  
+  .ProductList .add-to-cart {
+    background-image: url(@/assets/icons/bt_add_to_cart.svg);
+  }
+  
+  .ProductList .added-to-cart {
+    background-image: url(@/assets/icons/bt_added_to_cart.svg);
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 4px 3px #c9c9c9;
+    box-shadow: 0px 0px 4px 3px #c9c9c9;
+  }
+  
+  .ProductList .product-info > div:first-child > p {
+    font-size: 0.8rem;
+  }
+  
+  .ProductList .product-info h3 {
+    display: flex;
+    gap: 4%;
+  }
+  
+  .ProductList .product-info > div:last-child {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .ProductList .product-image {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .ProductList .product-image .message {
+    position: absolute;
+    top: calc(50% - 20px);
+    background-color: #ffffff;
+    opacity: 0.8;
+    height: 40px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-align: center;
+    margin: 0 15%;
+    word-wrap: normal;
+    padding: 0 15%;
+    display: none;
+  }
+  
+  .ProductList .product-removed .product-image .message {
+    display: flex;
+    align-items: center;
+  }
+  
+  .ProductList .product {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
+  @media screen and (min-width: 640px) {
+    .ProductList {
+        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(auto, 216px));
+    }
+
+    .ProductList .product .product-image img {
+        width: 216px;
+        height: 162px;
+    }
+}

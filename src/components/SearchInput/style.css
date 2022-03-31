@@ -1,0 +1,28 @@
+.SearchInput {
+    background-color: var(--Textinputfield);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+  }
+  
+.SearchInput img {
+    height: 17px;
+    width: 17px;
+}
+
+.SearchInput input {
+    outline: none;
+}
+
+.SearchInput input[type='text'] {
+    width: 100%;
+}
+
+.SearchInput input[type='text']:active {
+    outline: none;
+}
+  
+.SearchInput input[type='text']::placeholder {
+    color: var(--Verylightpink);
+}

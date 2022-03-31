@@ -1,23 +1,16 @@
+import { useEffect, useState } from 'react'
+import {  useParams } from 'react-router-dom'
+import FilterCategory from '../../components/FilterCategory'
+import SearchInput from '../../components/SearchInput'
+import ProductList from '../../components/ProductList'
 import './style.css'
-import searchLogo from '@/assets/icons/search.svg'
-import arrowDown from '@/assets/icons/arrow_down_black.svg'
-import { useContext, useEffect, useState } from 'react'
-import { Link, useLocation, useParams } from 'react-router-dom'
-import { ProductDetails } from '../../components/ProductDetails'
-import { useFetch } from '../../hooks/useFetch'
-import { resizeImage } from '../../utils/utils'
-import { AppContext } from '../../AppContext'
 
 export function Home() {
-  const categories = useFetch({
-    url: 'https://api.escuelajs.co/api/v1/categories'
-  })
-
-  let location = useLocation()
   let params = useParams()
   const [products, setProducts] = useState([])
   const [search, setSearch] = useState('')
   const [searchedProducts, setSearchedProducts] = useState([])
+
   useEffect(() => {
     fetch('https://api.escuelajs.co/api/v1/products?limit=20&offset=0')
       .then((res) => res.json())
@@ -33,7 +26,8 @@ export function Home() {
         setSearchedProducts(newData)
       })
   }, [params.category])
-  const onTextSearchChange = (e) => {
+
+  const handleTextSearchChange = (e) => {
     setSearch(e.target.value)
     setSearchedProducts(
       products.filter((product) =>
@@ -42,96 +36,15 @@ export function Home() {
     )
   }
 
-  const { addToCart, productInCart } = useContext(AppContext)
-
-  const [productDetailsOpen, setProductDetailsOpen] = useState(false)
-  const [productDetails, setProductDetails] = useState({})
-  const handleClickProductDetails = (product) => {
-    setProductDetails(product)
-    setProductDetailsOpen(true)
-  }
-  const handleClickCloseProductDetails = () => {
-    setProductDetailsOpen(false)
-  }
-
   return (
     <>
       <article className='Home'>
         <div className='home__header'>
-          <div className='search-input'>
-            <img src={searchLogo} alt='logo' />
-            <input
-              type='text'
-              placeholder='Search product'
-              value={search}
-              onChange={onTextSearchChange}
-            />
-          </div>
-          <ul className='filter-nav'>
-            <li className={location.pathname === '/' ? 'selected' : ''}>
-              <Link to='/'>All</Link>
-            </li>
-            {categories.map(({ id, name }) => (
-              <li
-                key={id}
-                className={
-                  location.pathname === `/category/${name}` ? 'selected' : ''
-                }
-              >
-                <Link to={'/category/' + name}>{name}</Link>
-              </li>
-            ))}
-          </ul>
-          <p className='text-center hide'>
-            <span>Order: </span>
-            <span id='order'>Most recent </span>
-            <img src={arrowDown} alt='arrow down' />
-          </p>
+         <SearchInput search={search} onTextSearchChange={handleTextSearchChange}/>
+          <FilterCategory />
         </div>
-        <div className='products'>
-          {searchedProducts.map((product) => (
-            <div key={product.id} className='product'>
-              <div
-                className='product-image'
-                onClick={() => handleClickProductDetails(product)}
-              >
-                <img
-                  src={product.images[0]}
-                  alt='product'
-                  srcSet={`${resizeImage(
-                    product.images[0],
-                    216,
-                    162
-                  )} 216w, ${resizeImage(product.images[0], 163, 122)} 163w`}
-                  sizes='(max-width: 640px) 163px, 50vw'
-                  loading='lazy'
-                />
-                <div className='message'>Removed from cart</div>
-              </div>
-              <div className='product-info'>
-                <div>
-                  <h3>
-                    <span>$</span>
-                    <span>{product.price}</span>
-                  </h3>
-                  <p>{product.title}</p>
-                </div>
-                <div
-                  className={
-                    productInCart(product.id) ? 'added-to-cart' : 'add-to-cart'
-                  }
-                  onClick={() => addToCart(product)}
-                ></div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <ProductList searchedProducts={searchedProducts} />
       </article>
-      <ProductDetails
-        product={productDetails}
-        isOpen={productDetailsOpen}
-        onClose={handleClickCloseProductDetails}
-      />
     </>
   )
 }

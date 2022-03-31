@@ -1,9 +1,9 @@
 import './style.css'
 import arrowLeft from '@/assets/icons/arrow-left.svg'
-import { AppContext } from '../../routes/AppContext'
 import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { resizeImage } from '../../utils/utils'
+import { AppContext } from '../../AppContext'
 export function ShoppingCart() {
   let navigate = useNavigate()
   const {

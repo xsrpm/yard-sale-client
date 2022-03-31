@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { AppContext } from './AppContext'
 import { useInitialState } from './useInitialState'
 import { MyOrder } from '../pages/MyOrder'
 import { MyOrders } from '../pages/MyOrders'
@@ -8,6 +7,7 @@ import { Layout } from '../components/Layout'
 import './index.css'
 import { MyAccount } from '../pages/MyAccount'
 import { MyAccountEdit } from '../pages/MyAccountEdit'
+import { AppContext } from '../AppContext'
 
 export function App() {
   const initialState = useInitialState()

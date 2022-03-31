@@ -4,8 +4,8 @@ import oval from '../../assets/icons/Oval.svg'
 import ovalSelected from '../../assets/icons/Oval-selected.svg'
 import './style.css'
 import { useContext } from 'react'
-import { AppContext } from '../../routes/AppContext'
 import { resizeImage } from '../../utils/utils'
+import { AppContext } from '../../AppContext'
 
 export function ProductDetails({ product, isOpen, onClose }) {
   const { addToCart } = useContext(AppContext)

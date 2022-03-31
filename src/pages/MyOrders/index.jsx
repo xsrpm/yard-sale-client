@@ -2,8 +2,9 @@ import './style.css'
 
 import arrowRight from '@/assets/icons/arrow-right.svg'
 import { useContext } from 'react'
-import { AppContext } from '../../routes/AppContext'
+
 import { Link } from 'react-router-dom'
+import { AppContext } from '../../AppContext'
 
 export function MyOrders() {
   const {

@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
-import { AppContext } from '../../routes/AppContext'
+import { AppContext } from '../../AppContext'
+
 import './style.css'
 
 export function MyOrder() {

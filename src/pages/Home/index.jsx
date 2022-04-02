@@ -4,37 +4,11 @@ import FilterCategory from '../../components/FilterCategory'
 import SearchInput from '../../components/SearchInput'
 import ProductList from '../../components/ProductList'
 import './style.css'
+import { useHome } from './useHome'
 
 export function Home() {
-  let params = useParams()
-  const [products, setProducts] = useState([])
-  const [search, setSearch] = useState('')
-  const [searchedProducts, setSearchedProducts] = useState([])
-
-  useEffect(() => {
-    fetch('https://api.escuelajs.co/api/v1/products?limit=20&offset=0')
-      .then((res) => res.json())
-      .then((data) => {
-        let newData = data
-        if (params.category) {
-          newData = newData.filter(
-            (product) => product.category.name === params.category
-          )
-        }
-        setSearch('')
-        setProducts(newData)
-        setSearchedProducts(newData)
-      })
-  }, [params.category])
-
-  const handleTextSearchChange = (e) => {
-    setSearch(e.target.value)
-    setSearchedProducts(
-      products.filter((product) =>
-        product.title.toLowerCase().includes(e.target.value.toLowerCase())
-      )
-    )
-  }
+  let {category} = useParams()
+  const  { incrementPage, handleTextSearchChange, searchedProducts, search} = useHome(category)
 
   return (
     <>
@@ -44,6 +18,9 @@ export function Home() {
           <FilterCategory />
         </div>
         <ProductList searchedProducts={searchedProducts} />
+        <div className='text-center'>
+          <button onClick={()=>incrementPage()} className='primary-button thin-width'>Load more</button>
+        </div>
       </article>
     </>
   )

@@ -2,7 +2,20 @@ import './style.css'
 import logo from '../../assets/icons/logo.svg'
 import logoX from '@/assets/icons/x.svg'
 import { Link } from 'react-router-dom'
+import useLogin from '@/hooks/useLogin'
 export function Login() {
+  const { login } = useLogin()
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(event)
+    // event.target[0].value
+    // event.target[1].value
+    const respLogin = login({ username: event.target[0].value, password: event.target[1].value });
+    if (respLogin?.error) {
+      console.log(respLogin.error);
+    }
+  }
   return (
     <article className='Login thin-width'>
       <div className='login__header'>
@@ -16,7 +29,7 @@ export function Login() {
           <span>yard</span>
           <span>Sale</span>
         </h1>
-        <form method='post' className='email-invalid'>
+        <form onSubmit={handleSubmit} method='post' className='email-invalid'>
           <div className='form-items'>
             <div className='form-item'>
               <label htmlFor='email'>Email address</label>
@@ -40,12 +53,9 @@ export function Login() {
           </div>
           <p className='message'>Invalid user ID and password combination</p>
           <div className='form-buttons'>
-            <Link to='home'>
-              <button className='primary-button' type='submit'>
-                Log in
-              </button>
-            </Link>
-
+            <button className='primary-button' type='submit'>
+              Log in
+            </button>
             <p className='text-center'>
               <a href='#' className='text-center'>
                 Forgot my password

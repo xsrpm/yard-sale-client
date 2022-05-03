@@ -8,6 +8,7 @@ import './index.css'
 import { MyAccount } from '../pages/MyAccount'
 import { MyAccountEdit } from '../pages/MyAccountEdit'
 import { AppContext } from '../AppContext'
+import { Login } from '../pages/Login'
 
 export function App() {
   const initialState = useInitialState()
@@ -26,6 +27,7 @@ export function App() {
             <Route path='orders' element={<MyOrders />}></Route>
             <Route path='account/edit' element={<MyAccountEdit />}></Route>
             <Route path='account' element={<MyAccount />} />
+            <Route path='login' element={<Login />} />
           </Routes>
         </Layout>
       </BrowserRouter>

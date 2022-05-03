@@ -68,3 +68,6 @@ Development of a shopping cart using an external API for the list of products. D
 - https://vite-plugin-pwa.netlify.app/guide/
 - https://web.dev/learn/pwa/
 - https://github.com/antfu/vite-plugin-pwa/issues/156
+
+
+https://vitejs.dev/guide/env-and-mode.html

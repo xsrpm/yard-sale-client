@@ -10,7 +10,7 @@ export function useHome(categoryName){
     const [searchedProducts, setSearchedProducts] = useState([])
 
     useEffect(() => {
-        console.log(page)
+       // console.log(page)
         setPage(INITIAL_PAGE)
         const  url = `https://api.escuelajs.co/api/v1/products?limit=${LIMIT}&offset=${page*LIMIT}`
         fetch(url)

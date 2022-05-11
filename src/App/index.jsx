@@ -27,7 +27,6 @@ export function App() {
             <Route path='orders' element={<MyOrders />}></Route>
             <Route path='account/edit' element={<MyAccountEdit />}></Route>
             <Route path='account' element={<MyAccount />} />
-            <Route path='login' element={<Login />} />
           </Routes>
         </Layout>
       </BrowserRouter>
